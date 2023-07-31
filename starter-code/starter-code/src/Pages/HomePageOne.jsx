@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SingleDogOverlay from "./SingleDogOverlay";
+import styles from "./HomePage.module.css";
 
 const HomePageOne = () => {
   const [dogs, setDogs] = useState([]);
@@ -31,7 +32,11 @@ const HomePageOne = () => {
         </form>
         <div>
           {dogs.map((dog) => (
-            <divdiv key={dog.id}></divdiv>
+            <div className={styles.component} key={dog.id}>
+              <img className={styles.size} src={dog.image.url} alt={dog.name} />
+              <h3>{dog.name}</h3>
+              <p>Uses: {dog.bred_for}</p>
+            </div>
           ))}
         </div>
       </div>
