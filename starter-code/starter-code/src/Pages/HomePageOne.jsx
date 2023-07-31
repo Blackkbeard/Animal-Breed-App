@@ -33,11 +33,17 @@ const HomePageOne = () => {
         </form>
         <div className={styles.component} loading="lazy">
           {dogs.map((dog) => (
-            <div key={dog.id}>
-              <img className={styles.size} src={dog.image.url} alt={dog.name} />
-              <h3 className={styles.titletext}>{dog.name}</h3>
-              <p className={styles.ptext}>Uses: {dog.bred_for}</p>
-            </div>
+            <Link to={`/${dog.name}`}>
+              <div key={dog.id}>
+                <img
+                  className={styles.size}
+                  src={dog.image.url}
+                  alt={dog.name}
+                />
+                <h3 className={styles.titletext}>{dog.name}</h3>
+                <p className={styles.ptext}>Uses: {dog.bred_for}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
