@@ -1,7 +1,10 @@
-.component div {
+.component {
   display: grid;
-  justify-content: space-evenly;
-  /* align-items: center; */
+  /* justify-content: space-evenly; */
+
+  border-width: 100px;
+  border-color: black;
+  grid-template-columns: auto auto auto auto;
 }
 .size {
   height: 150px;

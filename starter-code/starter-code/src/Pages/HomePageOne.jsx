@@ -30,9 +30,9 @@ const HomePageOne = () => {
             placeholder="What breed you want?"
           ></input>
         </form>
-        <div>
+        <div className={styles.component}>
           {dogs.map((dog) => (
-            <div className={styles.component} key={dog.id}>
+            <div key={dog.id}>
               <img className={styles.size} src={dog.image.url} alt={dog.name} />
               <h3>{dog.name}</h3>
               <p>Uses: {dog.bred_for}</p>
