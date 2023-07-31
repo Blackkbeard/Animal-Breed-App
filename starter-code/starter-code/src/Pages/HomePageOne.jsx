@@ -24,6 +24,7 @@ const HomePageOne = () => {
         <div className="">Welcome to The dog breed info list</div>
         <form>
           <input
+            className={styles.input}
             input="text"
             name="search"
             id="search"
