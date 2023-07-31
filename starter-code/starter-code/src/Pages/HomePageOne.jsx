@@ -31,12 +31,12 @@ const HomePageOne = () => {
             placeholder="What breed you want?"
           ></input>
         </form>
-        <div className={styles.component}>
+        <div className={styles.component} loading="lazy">
           {dogs.map((dog) => (
             <div key={dog.id}>
               <img className={styles.size} src={dog.image.url} alt={dog.name} />
-              <h3>{dog.name}</h3>
-              <p>Uses: {dog.bred_for}</p>
+              <h3 className={styles.titletext}>{dog.name}</h3>
+              <p className={styles.ptext}>Uses: {dog.bred_for}</p>
             </div>
           ))}
         </div>

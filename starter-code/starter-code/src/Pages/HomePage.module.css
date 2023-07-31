@@ -1,17 +1,25 @@
 .component {
   display: grid;
-  /* justify-content: space-evenly; */
-
-  border-width: 100px;
-  border-color: black;
-  
-  grid-template-columns: auto auto auto auto;
+  /* grid-template-columns: auto auto auto auto; */
+  justify-content: space-evenly;
+  border: 5px solid black;
+  border-radius: 35px;
 }
+
 .size {
   height: 150px;
-  width: 150px;
+  width: 200px;
+  margin-bottom: 2px;
+  /* object-fit: cover; */
 }
 .input {
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
+}
+.titletext{
+    font-size: 20px;
+}
+.ptext{
+    font-size: 10px;
 }
