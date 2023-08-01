@@ -1,6 +1,6 @@
 // import React, { useState, useEffect } from "react";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import styles from "./HomePage.module.css";
 
 const SingleDogOverlay = () => {
@@ -22,12 +22,33 @@ const SingleDogOverlay = () => {
     fetchSingleData();
   }, [name]);
 
+  const navigate = useNavigate();
+
+  // This function is used to navigate to the home page
+  // It will be called when the button is clicked
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <>
       <div>
         {dog.map((item) => (
           <div key={item.id}>
             <div>
+              {`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg` ? (
+                <img
+                  className={styles.size}
+                  src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg`}
+                  alt=""
+                ></img>
+              ) : (
+                <img
+                  className={styles.size}
+                  src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.png`}
+                  alt=""
+                ></img>
+              )}
               <img
                 className={styles.size}
                 src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg`}
@@ -49,6 +70,10 @@ const SingleDogOverlay = () => {
                 <li>Life-Span: {item.life_span} </li>
                 <li>Temperament:{item.temperament}</li>
               </ul>
+              {/* Way 1 */}
+              {/* <Link to="/HomePage">&larr; Go back</Link> */}
+              {/* Way 2 */}
+              <button onClick={goBack}> &larr; Go Back</button>
             </div>
           </div>
         ))}
