@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import SingleDogOverlay from "./SingleDogOverlay";
 import styles from "./HomePage.module.css";
 
-
 const HomePageOne = () => {
   const [dogs, setDogs] = useState([]);
   useEffect(() => {
@@ -12,9 +11,9 @@ const HomePageOne = () => {
         const res = await fetch("https://api.thedogapi.com/v1/breeds");
         const data = await res.json();
         setDogs(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     fetchDogData();

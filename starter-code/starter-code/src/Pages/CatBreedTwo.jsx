@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import SingleDogOverlay from "./SingleDogOverlay";
+
 import styles from "./HomePage.module.css";
 
 const CatBreedTwo = () => {
@@ -54,7 +54,8 @@ const CatBreedTwo = () => {
               <div key={cat.id}>
                 <img
                   className={styles.size}
-                  src={cat.reference_image_id}
+                  src={`https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`}
+                  // src={cat.url}
                   alt={cat.name}
                 />
                 <h3 className={styles.titletext}>{cat.name}</h3>

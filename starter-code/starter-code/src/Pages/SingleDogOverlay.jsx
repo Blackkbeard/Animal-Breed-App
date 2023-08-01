@@ -1,11 +1,60 @@
-import React from 'react';
+// import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import styles from "./HomePage.module.css";
 
 const SingleDogOverlay = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  const [dog, setDog] = useState([]);
+  const { name } = useParams();
+  useEffect(() => {
+    const fetchSingleData = async () => {
+      try {
+        const res = await fetch(
+          `https://api.thedogapi.com/v1/breeds/search?q=${name}`
+        );
+        const data = await res.json();
+        setDog(data);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchSingleData();
+  }, [name]);
+
+  return (
+    <>
+      <div>
+        {dog.map((item) => (
+          <div key={item.id}>
+            <div>
+              <img
+                className={styles.size}
+                src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg`}
+                alt=""
+              ></img>
+            </div>
+            <div>
+              <h1>{item.name}</h1>
+              <p>
+                {item.description ? (
+                  <p>{item.description}</p>
+                ) : (
+                  <p>Bred For: {item.bred_for}</p>
+                )}
+              </p>
+              <ul>
+                <li>Height: {item.height.metric} Cms</li>
+                <li>Weight: {item.weight.metric} Kgs</li>
+                <li>Life-Span: {item.life_span} </li>
+                <li>Temperament:{item.temperament}</li>
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default SingleDogOverlay;
