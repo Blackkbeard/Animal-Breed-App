@@ -1,5 +1,7 @@
-import React from "react";
-import SingleCatOverlay from "./SingleCatOverlay";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import SingleDogOverlay from "./SingleDogOverlay";
+import styles from "./HomePage.module.css";
 
 const CatBreedTwo = () => {
   const [cats, setCats] = useState([]);
@@ -13,32 +15,55 @@ const CatBreedTwo = () => {
       } catch (error) {
         console.log(error);
       }
+      // const url = "https://cats-by-api-ninjas.p.rapidapi.com/v1/cats";
+      // const options = {
+      //   method: "GET",
+      //   headers: {
+      //     "X-RapidAPI-Key":
+      //       "5c00b726e6mshdf89a17ad9252cbp172fc7jsnb58b183e7c73",
+      //     "X-RapidAPI-Host": "cats-by-api-ninjas.p.rapidapi.com",
+      //   },
+      // };
+
+      // try {
+      //   const response = await fetch(url, options);
+      //   const result = await response.text();
+      //   console.log(result);
+      // } catch (error) {
+      //   console.error(error);
+      // }
     };
     fetchCatData();
   }, []);
-
   return (
     <>
       <div>
-        <div className="">Welcome to The dog breed info list</div>
+        <div className="">Welcome to The Cat breed info list</div>
         <form>
           <input
+            className={styles.input}
             input="text"
             name="search"
             id="search"
             placeholder="What breed you want?"
           ></input>
         </form>
-        <div>{}</div>
+        <div className={styles.component} loading="lazy">
+          {cats.map((cat) => (
+            <Link to={`/${cat.name}`}>
+              <div key={cat.id}>
+                <img
+                  className={styles.size}
+                  src={cat.reference_image_id}
+                  alt={cat.name}
+                />
+                <h3 className={styles.titletext}>{cat.name}</h3>
+                <p className={styles.ptext}>Uses: {cat.description}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
-      {/* <div className="containter">The dog Element</div>
-      <h2>Page One</h2>
-      <ul>
-        <Link to="/page-one/a">A</Link>
-      </ul>
-      <ul>
-        <Link to="/page-one/b">B</Link>
-      </ul> */}
     </>
   );
 };

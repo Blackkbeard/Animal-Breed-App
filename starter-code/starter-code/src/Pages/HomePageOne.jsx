@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SingleDogOverlay from "./SingleDogOverlay";
 import styles from "./HomePage.module.css";
 
+
 const HomePageOne = () => {
   const [dogs, setDogs] = useState([]);
   useEffect(() => {
