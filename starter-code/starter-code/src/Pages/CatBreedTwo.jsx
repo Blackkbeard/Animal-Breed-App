@@ -38,7 +38,7 @@ const CatBreedTwo = () => {
   return (
     <>
       <div>
-        <div className="">Welcome to The Cat breed info list</div>
+        <div className="">Welcome to The Cat breed info list </div>
         <form>
           <input
             className={styles.input}
