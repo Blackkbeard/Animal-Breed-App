@@ -36,19 +36,6 @@ const SingleDogOverlay = () => {
         {dog.map((item) => (
           <div key={item.id}>
             <div>
-              {/* {`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg` ? (
-                <img
-                  className={styles.size}
-                  src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg`}
-                  alt=""
-                ></img>
-              ) : (
-                <img
-                  className={styles.size}
-                  src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.png`}
-                  alt=""
-                ></img>
-              )} */}
               <img
                 className={styles.size}
                 src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg`}
@@ -68,11 +55,9 @@ const SingleDogOverlay = () => {
                 <li>Height: {item.height.metric} Cms</li>
                 <li>Weight: {item.weight.metric} Kgs</li>
                 <li>Life-Span: {item.life_span} </li>
-                <li>Temperament:{item.temperament}</li>
+                <li>Temperament: {item.temperament}</li>
               </ul>
-              {/* Way 1 */}
-              {/* <Link to="/HomePage">&larr; Go back</Link> */}
-              {/* Way 2 */}
+
               <button onClick={goBack}> &larr; Go Back</button>
             </div>
           </div>

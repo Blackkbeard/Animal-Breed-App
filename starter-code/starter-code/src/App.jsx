@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Navigate replace to="/page-one" />} />
 
         <Route path="/HomePage" element={<HomePageOne />} />
-        <Route path="/:name" element={<SingleDogOverlay />}></Route>
+        {/* <Route path="/:name" element={<SingleDogOverlay />}></Route> */}
 
         {/* <Route path="/page-one/:item" element={<Details />} /> */}
 
