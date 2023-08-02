@@ -36,7 +36,7 @@ const SingleDogOverlay = () => {
         {dog.map((item) => (
           <div key={item.id}>
             <div>
-              {`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg` ? (
+              {/* {`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg` ? (
                 <img
                   className={styles.size}
                   src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg`}
@@ -48,12 +48,12 @@ const SingleDogOverlay = () => {
                   src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.png`}
                   alt=""
                 ></img>
-              )}
-              {/* <img
+              )} */}
+              <img
                 className={styles.size}
                 src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg`}
                 alt=""
-              ></img> */}
+              ></img>
             </div>
             <div>
               <h1>{item.name}</h1>

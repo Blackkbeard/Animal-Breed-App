@@ -32,7 +32,7 @@ const HomePageOne = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dogSearch;
+    dogSearch();
   };
   return (
     <>
@@ -48,9 +48,10 @@ const HomePageOne = () => {
             value={text}
             onChange={(e) => setText(e.target.value)}
           ></input>
+          <button type="submit">Submit</button>
         </form>
         <div className={styles.component} loading="lazy">
-          {dogs.map((dog) => (
+          {/* {dogs.map((dog) => (
             <Link to={`/${dog.name}`}>
               <div key={dog.id}>
                 <img
@@ -58,6 +59,25 @@ const HomePageOne = () => {
                   src={dog.image.url}
                   alt={dog.name}
                 />
+                <h3 className={styles.titletext}>{dog.name}</h3>
+                <p className={styles.ptext}>Uses: {dog.bred_for}</p>
+              </div>
+            </Link>
+          ))} */}
+
+          {dogs.map((dog) => (
+            <Link to={`/${dog.name}`}>
+              <div key={dog.id}>
+                <img
+                  className={styles.size}
+                  src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
+                  alt={dog.name}
+                ></img>
+                {/* <img
+                  className={styles.size}
+                  src={dog.image.url}
+                  alt={dog.name}
+                /> */}
                 <h3 className={styles.titletext}>{dog.name}</h3>
                 <p className={styles.ptext}>Uses: {dog.bred_for}</p>
               </div>
