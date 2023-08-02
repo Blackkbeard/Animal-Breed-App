@@ -49,11 +49,11 @@ const SingleDogOverlay = () => {
                   alt=""
                 ></img>
               )}
-              <img
+              {/* <img
                 className={styles.size}
                 src={`https://cdn2.thedogapi.com/images/${item.reference_image_id}.jpg`}
                 alt=""
-              ></img>
+              ></img> */}
             </div>
             <div>
               <h1>{item.name}</h1>

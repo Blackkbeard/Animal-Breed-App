@@ -5,6 +5,7 @@ import styles from "./HomePage.module.css";
 
 const HomePageOne = () => {
   const [dogs, setDogs] = useState([]);
+  const [text, setText] = useState("");
   useEffect(() => {
     const fetchDogData = async () => {
       try {
@@ -18,17 +19,34 @@ const HomePageOne = () => {
     };
     fetchDogData();
   }, []);
+  const dogSearch = async () => {
+    try {
+      const res = await fetch(
+        `https://api.thedogapi.com/v1/breeds/search?q=${text}`
+      );
+      const data = await res.json();
+      setDogs(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dogSearch;
+  };
   return (
     <>
       <div>
         <div className="">Welcome to The dog breed info list</div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             className={styles.input}
             input="text"
             name="search"
             id="search"
             placeholder="What breed you want?"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
           ></input>
         </form>
         <div className={styles.component} loading="lazy">
