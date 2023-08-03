@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import styles from "./HomePage.module.css";
+import styles from "./HomePage.module.css";
 import OverlayModal from "./OverlayModal";
 
 const HomePageOne = () => {
@@ -49,79 +49,88 @@ const HomePageOne = () => {
   };
   return (
     <>
-      <div>
-        <div>Welcome to The dog breed info list</div>
-        <form onSubmit={handleSubmit}>
-          <input
-            // className={styles.input}
-            input="text"
-            name="search"
-            id="search"
-            placeholder="What breed you want?"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          ></input>
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+      <div className="container" style={{ backgroundColor: "#FDCEDF" }}>
+        <div>
+          <div className="container d-flex justify-content-center">
+            Welcome to The dog breed info list
+          </div>
+          <form onSubmit={handleSubmit}>
+            <input
+              className="container d-flex justify-content-center"
+              input="text"
+              name="search"
+              id="search"
+              placeholder="What breed you want?"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            ></input>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
 
-      <div loading="lazy" className="container">
-        {dogs.map((dog) => {
-          return (
-            <>
-              <div
-                className="card"
-                style={{
-                  top: "10px",
-                  width: "25%",
-                  display: "inline-block",
-                  height: "425px",
-                  // padding: "0, 200px, 20px, 0",
-                  position: "relative",
-                }}
-                key={dog.id}
-              >
-                <img
-                  style={{
-                    position: "absolute",
-                    top: "20px",
-                    left: "10px",
-                    width: "300px",
-                    height: "250px",
-                  }}
-                  src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
-                  className="card-img-top"
-                  alt={dog.name}
-                />
+        <div loading="lazy" className="container">
+          {dogs.map((dog) => {
+            return (
+              <>
                 <div
-                  className="card-body"
-                  style={{ position: "absolute", bottom: "20px" }}
+                  className="card"
+                  style={{
+                    top: "10px",
+                    width: "25%",
+                    display: "inline-block",
+                    height: "455px",
+                    // padding: "0, 200px, 20px, 0",
+                    position: "relative",
+                    backgroundColor: "#D4E2D4",
+                  }}
+                  key={dog.id}
                 >
-                  <h5 className="card-title">{dog.name}</h5>
-                  <p className="card-text">{dog.bred_for}</p>
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => handleClick(dog.id)}
+                  <img
+                    style={{
+                      position: "absolute",
+                      top: "20px",
+                      left: "5px",
+                      width: "300px",
+                      height: "250px",
+                    }}
+                    src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
+                    className="card-img-top"
+                    alt={dog.name}
+                  />
+                  <div
+                    className="card-body"
+                    style={{ position: "absolute", bottom: "20px" }}
                   >
-                    Click here for info
-                  </button>
+                    <h5 className="card-title">{dog.name}</h5>
+                    <p className="card-text">Uses: {dog.bred_for}</p>
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => handleClick(dog.id)}
+                      style={{ backgroundColor: "#FD8A8A" }}
+                    >
+                      Click here for info
+                    </button>
+                  </div>
                 </div>
-              </div>
 
-              {dog.showInfo && (
-                <OverlayModal
-                  id={dog.id}
-                  name={dog.name}
-                  bred_for={dog.bred_for}
-                  metric={dog.weight.metric}
-                  setShowInfo={setShowInfo}
-                  img={dog.reference_image_id}
-                  setDogs={setDogs}
-                ></OverlayModal>
-              )}
-            </>
-          );
-        })}
+                {dog.showInfo && (
+                  <OverlayModal
+                    id={dog.id}
+                    name={dog.name}
+                    bred_for={dog.bred_for}
+                    weight={dog.weight.metric}
+                    height={dog.height.metric}
+                    setShowInfo={setShowInfo}
+                    img={dog.reference_image_id}
+                    setDogs={setDogs}
+                    temperament={dog.temperament}
+                    origin={dog.origin}
+                  ></OverlayModal>
+                )}
+              </>
+            );
+          })}
+        </div>
       </div>
     </>
   );

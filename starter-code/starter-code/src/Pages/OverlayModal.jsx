@@ -16,13 +16,18 @@ const Overlay = (props) => {
     <>
       <div className={styles.backdrop}>
         <div className={styles.modal}>
-          <div> {props.name}</div>
-          <div>{props.metric} </div>
-          <div>{props.id}</div>
           <img
             src={`https://cdn2.thedogapi.com/images/${props.img}.jpg`}
             className={styles.size}
           ></img>
+          <ul>
+            <li>{props.name}</li>
+            <li>{props.height} Cm</li>
+            <li>{props.weight} Kg</li>
+            <li>{props.temperament}</li>
+            {/* <li>{props.origin}</li> */}
+          </ul>
+
           <button onClick={() => handleOnClick(props.id)}>close</button>
         </div>
       </div>
@@ -37,10 +42,13 @@ const OverlayModal = (props) => {
         <Overlay
           name={props.name}
           setShowInfo={props.setShowInfo}
-          metric={props.metric}
+          weight={props.metric}
           img={props.img}
           id={props.id}
           setDogs={props.setDogs}
+          temperament={props.temperament}
+          origin={props.origin}
+          height={props.height}
         ></Overlay>,
         document.querySelector("#modal-root")
       )}

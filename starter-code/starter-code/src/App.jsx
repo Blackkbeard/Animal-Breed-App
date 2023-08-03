@@ -1,17 +1,14 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-
 import HomePageOne from "./Pages/HomePageOne";
 import CatBreedTwo from "./Pages/CatBreedTwo";
-
 import NavBar from "./Navigate/NavBar";
-// import SingleDogOverlay from "./Pages/SingleDogOverlay";
-// import SingleCatOverlay from "./Pages/SingleCatOverlay";
 
 function App() {
   return (
     <div className="container">
-      <NavBar></NavBar>
+      <h1> Test</h1>
+      <NavBar className="w-25 p-3"></NavBar>
       <Routes>
         <Route path="/" element={<Navigate replace to="/HomePage" />} />
 
