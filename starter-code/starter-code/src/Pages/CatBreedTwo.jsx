@@ -54,7 +54,7 @@ const CatBreedTwo = () => {
       <div className="container" style={{ backgroundColor: "#FDCEDF" }}>
         <div>
           <div className="container d-flex justify-content-center fs-2">
-            DOG BREEDS LIST
+            CAT BREEDS LIST
           </div>
           <form
             onSubmit={handleSubmit}
@@ -82,7 +82,7 @@ const CatBreedTwo = () => {
                     top: "10px",
                     width: "25%",
                     display: "inline-block",
-                    height: "455px",
+                    height: "475px",
                     // padding: "0, 200px, 20px, 0",
                     position: "relative",
                     backgroundColor: "#D4E2D4",
@@ -106,7 +106,7 @@ const CatBreedTwo = () => {
                     style={{ position: "absolute", bottom: "20px" }}
                   >
                     <h5 className="card-title">{cat.name}</h5>
-                    <p className="card-text">Uses: {cat.bred_for}</p>
+                    <p className="card-text">Uses: {cat.temperament}</p>
                     <button
                       className="btn btn-primary"
                       onClick={() => handleClick(cat.id)}

@@ -18,7 +18,7 @@ const NavBar = () => {
           <li>
             <NavLink
               className={(navData) => (navData.isActive ? styles.active : "")}
-              to="/page-two"
+              to="/CatBreeds"
             >
               Cat Breeds
             </NavLink>

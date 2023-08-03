@@ -24,8 +24,9 @@ const Overlay = (props) => {
               <strong>{props.name}</strong>
             </h2>
             <li>{props.description}</li>
-            <li>{props.weight} Kg</li>
+            <li>{props.metric} Kg</li>
             <li>{props.temperament}</li>
+            <li>Friendliness to Dogs - {props.friend}</li>
             <li>{props.life}</li>
             <li>{props.origin}</li>
           </ul>

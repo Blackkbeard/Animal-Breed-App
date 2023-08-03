@@ -25,7 +25,7 @@ function App() {
 
         {/* <Route path="/page-one/:item" element={<Details />} /> */}
 
-        <Route path="/page-two" element={<CatBreedTwo />} />
+        <Route path="/CatBreeds" element={<CatBreedTwo />} />
         {/* <Route path="/:name" element={<SingleCatOverlay />}></Route> */}
 
         {/* <Route path="/page-three" element={<PageThree />} /> */}
