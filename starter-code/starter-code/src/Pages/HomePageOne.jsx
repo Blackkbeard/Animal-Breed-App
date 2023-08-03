@@ -119,9 +119,10 @@ const HomePageOne = () => {
                   <OverlayModal
                     id={dog.id}
                     name={dog.name}
-                    bred_for={dog.bred_for}
+                    bred={dog.bred_for}
                     weight={dog.weight.metric}
                     height={dog.height.metric}
+                    life={dog.life_span}
                     setShowInfo={setShowInfo}
                     img={dog.reference_image_id}
                     setDogs={setDogs}

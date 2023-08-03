@@ -10,13 +10,14 @@
 .text {
   position: relative;
   left: 40px;
+  color: #faf4b7;
 }
 
 .size {
   /* display: flex; */
   position: relative;
   height: 300px;
-  width: 350px;
+  width: 380px;
   /* margin-bottom: 20px; */
   align-items: center;
   border-radius: 50px;
@@ -25,7 +26,7 @@
 .button {
   display: flex;
   position: relative;
-  top: 120px;
+  top: 140px;
   right: 220px;
   height: 35px;
   width: 90px;

@@ -24,9 +24,11 @@ const Overlay = (props) => {
             <h2>
               <strong>{props.name}</strong>
             </h2>
+            <li>{props.bred}</li>
             <li>{props.height} Cm</li>
             <li>{props.weight} Kg</li>
             <li>{props.temperament}</li>
+            <li>{props.life}</li>
             {/* <li>{props.origin}</li> */}
           </ul>
 
@@ -56,6 +58,8 @@ const OverlayModal = (props) => {
           temperament={props.temperament}
           origin={props.origin}
           height={props.height}
+          life={props.life}
+          bred={props.bred}
         ></Overlay>,
         document.querySelector("#modal-root")
       )}
