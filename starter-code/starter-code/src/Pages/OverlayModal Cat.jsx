@@ -11,7 +11,6 @@ const Overlay = (props) => {
         dog.id === dogId ? { ...dog, showInfo: !dog.showInfo } : dog
       )
     );
-  
   };
   return (
     <>

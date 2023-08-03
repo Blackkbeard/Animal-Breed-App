@@ -13,7 +13,7 @@ function App() {
     <div className="container">
       <NavBar></NavBar>
       <Routes>
-        <Route path="/" element={<Navigate replace to="/page-one" />} />
+        <Route path="/" element={<Navigate replace to="/HomePage" />} />
 
         <Route path="/HomePage" element={<HomePageOne />} />
         {/* <Route path="/:name" element={<SingleDogOverlay />}></Route> */}

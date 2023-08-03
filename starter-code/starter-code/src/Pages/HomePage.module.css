@@ -1,14 +1,21 @@
 .component {
   display: grid;
-  /* grid-template-columns: auto auto auto auto; */
+  grid-template-columns: auto auto auto auto;
   justify-content: space-evenly;
-  border: 5px solid black;
-  border-radius: 35px;
+  /* border: 5px solid black; */
+  /* border-radius: 35px; */
 }
-
+.img {
+  border-radius: 10px;
+}
+.button {
+  margin: -5px 5px 10px 5px;
+}
 .size {
-  height: 150px;
-  width: 200px;
+  border-radius: 10px;
+  height: 180px;
+  width: 250px;
+
   margin-bottom: 2px;
   /* object-fit: cover; */
 }
@@ -17,9 +24,10 @@
   justify-content: center;
   margin-bottom: 10px;
 }
-.titletext{
-    font-size: 20px;
+.titletext {
+  font-size: 20px;
+  align-items: center;
 }
-.ptext{
-    font-size: 10px;
+.ptext {
+  font-size: 10px;
 }

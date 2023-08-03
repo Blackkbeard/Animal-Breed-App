@@ -13,7 +13,9 @@ const HomePageOne = () => {
       try {
         const res = await fetch("https://api.thedogapi.com/v1/breeds");
         const data = await res.json();
-        setDogs(data);
+        const dogsWithInfo = data.map((dog) => ({ ...dog, showInfo: false }));
+
+        setDogs(dogsWithInfo);
         console.log(data);
       } catch (error) {
         // console.log(error);
@@ -27,15 +29,20 @@ const HomePageOne = () => {
         `https://api.thedogapi.com/v1/breeds/search?q=${text}`
       );
       const data = await res.json();
-      setDogs(data);
+      const dogsWithInfo = data.map((dog) => ({ ...dog, showInfo: false }));
+
+      setDogs(dogsWithInfo);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleClick = () => {
-    setShowInfo(true);
-    console.log(showInfo);
+  const handleClick = (dogId) => {
+    setDogs((prevDogs) =>
+      prevDogs.map((dog) =>
+        dog.id === dogId ? { ...dog, showInfo: !dog.showInfo } : dog
+      )
+    );
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,56 +65,41 @@ const HomePageOne = () => {
           <button type="submit">Submit</button>
         </form>
         <div className={styles.component} loading="lazy">
-          {/* {dogs.map((dog) => (
-            <Link to={`/${dog.name}`}>
-              <div key={dog.id}>
-                <img
-                  className={styles.size}
-                  src={dog.image.url}
-                  alt={dog.name}
-                />
-                <h3 className={styles.titletext}>{dog.name}</h3>
-                <p className={styles.ptext}>Uses: {dog.bred_for}</p>
-              </div>
-            </Link>
-          ))} */}
+          {dogs.map((dog) => {
+            return (
+              <>
+                <div key={dog.id}>
+                  <img 
+                    className={styles.size}
+                    src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
+                    alt={dog.name}
+                  ></img>
+                  <h3 className={styles.titletext}>{dog.name}</h3>
+                  <p className={styles.ptext}>Uses: {dog.bred_for}</p>
+                  <button
+                    className={styles.button}
+                    onClick={() => handleClick(dog.id)}
+                  >
+                    Click here for info
+                  </button>
 
-          {dogs.map((dog) => (
-            <div key={dog.id}>
-              <img
-                className={styles.size}
-                src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
-                alt={dog.name}
-              ></img>
-              <button onClick={handleClick}>Click here for info</button>
-              {/* <img
-                  className={styles.size}
-                  src={dog.image.url}
-                  alt={dog.name}
-                /> */}
-              <h3 className={styles.titletext}>{dog.name}</h3>
-              <p className={styles.ptext}>Uses: {dog.bred_for}</p>
-              {showInfo && (
-                <OverlayModal
-                  name={dog.name}
-                  bred_for={dog.bred_for}
-                  metric={dog.weight.metric}
-                  setShowInfo={setShowInfo}
-                  img={dog.reference_image_id}
-                ></OverlayModal>
-              )}
-            </div>
-          ))}
+                  {dog.showInfo && (
+                    <OverlayModal
+                      id={dog.id}
+                      name={dog.name}
+                      bred_for={dog.bred_for}
+                      metric={dog.weight.metric}
+                      setShowInfo={setShowInfo}
+                      img={dog.reference_image_id}
+                      setDogs={setDogs}
+                    ></OverlayModal>
+                  )}
+                </div>
+              </>
+            );
+          })}
         </div>
       </div>
-      {/* <div className="containter">The dog Element</div>
-      <h2>Page One</h2>
-      <ul>
-        <Link to="/page-one/a">A</Link>
-      </ul>
-      <ul>
-        <Link to="/page-one/b">B</Link>
-      </ul> */}
     </>
   );
 };
