@@ -23,6 +23,7 @@ const HomePageOne = () => {
     };
     fetchDogData();
   }, []);
+
   const dogSearch = async () => {
     try {
       const res = await fetch(
