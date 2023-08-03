@@ -12,7 +12,22 @@ body {
   margin: 0;
   background-color: #fdcedf;
 }
-
+.gif {
+  display: flex;
+  position: fixed;
+  height: 500px;
+  width: 500px;
+  left: 30px;
+  top: 60px;
+}
+.gif2 {
+  display: flex;
+  position: fixed;
+  height: 500px;
+  width: 500px;
+  left: 2000px;
+  top: 60px;
+}
 .centered {
   margin: 3rem auto;
   text-align: center;
