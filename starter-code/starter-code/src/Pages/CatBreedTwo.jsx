@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./HomePage.module.css";
+import OverlayModalCat from "./OverlayModalCat";
 
 const CatBreedTwo = () => {
   const [cats, setCats] = useState([]);
@@ -81,15 +82,15 @@ const CatBreedTwo = () => {
                     Click here for info
                   </button>
                   {cat.showInfo && (
-                    <OverlayModal
+                    <OverlayModalCat
                       id={cat.id}
                       name={cat.name}
                       bred_for={cat.bred_for}
                       metric={cat.weight.metric}
                       setShowInfo={setShowInfos}
                       img={cat.reference_image_id}
-                      setDogs={setCats}
-                    ></OverlayModal>
+                      setCats={setCats}
+                    ></OverlayModalCat>
                   )}
                 </div>
               </>
