@@ -120,7 +120,11 @@ const CatBreedTwo = () => {
                   <OverlayModalCat
                     id={cat.id}
                     name={cat.name}
-                    bred_for={cat.bred_for}
+                    description={cat.description}
+                    temperament={cat.temperament}
+                    origin={cat.origin}
+                    life={cat.life_span}
+                    friend={cat.dog_friendly}
                     metric={cat.weight.metric}
                     setShowInfo={setShowInfos}
                     img={cat.reference_image_id}
