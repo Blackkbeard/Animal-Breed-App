@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
- import styles from "./HomePage.module.css";
+import styles from "./HomePage.module.css";
 
 const CatBreedTwo = () => {
   const [cats, setCats] = useState([]);
   const [texts, setTexts] = useState("");
-  const [showInfo, setShowInfo] = useState(false);
+  const [showInfos, setShowInfos] = useState(false);
 
   useEffect(() => {
     const fetchCatData = async () => {
       try {
         const res = await fetch("https://api.thecatapi.com/v1/breeds");
-        const data = await res.json();
-        setCats(data);
-        console.log(data);
+        const data1 = await res.json();
+        const catsWithInfo = data1.map((cat) => ({ ...cat, showInfo: false }));
+
+        setCats(catsWithInfo);
       } catch (error) {
         console.log(error);
       }
-      
     };
     fetchCatData();
   }, []);
@@ -27,12 +27,21 @@ const CatBreedTwo = () => {
       const res = await fetch(
         `https://api.thecatapi.com/v1/breeds/search?q=${texts}`
       );
-      const data = await res.json();
-      setCats(data);
+      const data1 = await res.json();
+      setCats(data1);
     } catch (error) {
       console.log(error);
     }
   };
+
+  const handleClick = (catId) => {
+    setCats((prevCats) =>
+      prevCats.map((cat) =>
+        cat.id === catId ? { ...cat, showInfo: !cat.showInfo } : cat
+      )
+    );
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     catSearch();
@@ -51,36 +60,41 @@ const CatBreedTwo = () => {
             value={texts}
             onChange={(e) => setTexts(e.target.value)}
           ></input>
+          <button type="submit">Submit</button>
         </form>
         <div className={styles.component} loading="lazy">
-          {/* {cats.map((cat) => (
-            <Link to={`/${cat.name}`}>
-              <div key={cat.id}>
-                <img
-                  className={styles.size}
-                  src={`https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`}
-                  // src={cat.url}
-                  alt={cat.name}
-                />
-                <h3 className={styles.titletext}>{cat.name}</h3>
-                <p className={styles.ptext}>Uses: {cat.description}</p>
-              </div>
-            </Link>
-          ))} */}
-          {cats.map((cat) => (
-            <Link to={`/${cat.name}`}>
-              <div key={cat.id}>
-                <img
-                  className={styles.size}
-                  src={`https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`}
-                  // src={cat.url}
-                  alt={cat.name}
-                />
-                <h3 className={styles.titletext}>{cat.name}</h3>
-                <p className={styles.ptext}>Uses: {cat.description}</p>
-              </div>
-            </Link>
-          ))}
+          {cats.map((cat) => {
+            return (
+              <>
+                <div key={cat.id}>
+                  <img
+                    className={styles.size}
+                    src={`https://cdn2.thecatapi.com/images/${cat.reference_image_id}.jpg`}
+                    alt={cat.name}
+                  ></img>
+                  <h3 className={styles.titletext}>{cat.name}</h3>
+                  <p className={styles.ptext}>Uses: {cat.bred_for}</p>
+                  <button
+                    className={styles.button}
+                    onClick={() => handleClick(cat.id)}
+                  >
+                    Click here for info
+                  </button>
+                  {cat.showInfo && (
+                    <OverlayModal
+                      id={cat.id}
+                      name={cat.name}
+                      bred_for={cat.bred_for}
+                      metric={cat.weight.metric}
+                      setShowInfo={setShowInfos}
+                      img={cat.reference_image_id}
+                      setDogs={setCats}
+                    ></OverlayModal>
+                  )}
+                </div>
+              </>
+            );
+          })}
         </div>
       </div>
     </>

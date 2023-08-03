@@ -69,7 +69,7 @@ const HomePageOne = () => {
             return (
               <>
                 <div key={dog.id}>
-                  <img 
+                  <img
                     className={styles.size}
                     src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
                     alt={dog.name}
