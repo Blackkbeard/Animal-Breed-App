@@ -7,6 +7,7 @@ const HomePageOne = () => {
   const [dogs, setDogs] = useState([]);
   const [text, setText] = useState("");
   const [showInfo, setShowInfo] = useState(false);
+
   useEffect(() => {
     const fetchDogData = async () => {
       try {
@@ -17,7 +18,7 @@ const HomePageOne = () => {
         setDogs(dogsWithInfo);
         console.log(data);
       } catch (error) {
-        // console.log(error);
+        console.log(error);
       }
     };
     fetchDogData();
@@ -43,6 +44,7 @@ const HomePageOne = () => {
       )
     );
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dogSearch();
@@ -75,7 +77,7 @@ const HomePageOne = () => {
             return (
               <>
                 <div
-                  className="card"
+                  className="card  mb-4"
                   style={{
                     top: "10px",
                     width: "25%",
@@ -88,6 +90,9 @@ const HomePageOne = () => {
                   key={dog.id}
                 >
                   <img
+                    src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
+                    className="card-img-top"
+                    alt={dog.name}
                     style={{
                       position: "absolute",
                       top: "20px",
@@ -95,9 +100,6 @@ const HomePageOne = () => {
                       width: "300px",
                       height: "250px",
                     }}
-                    src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
-                    className="card-img-top"
-                    alt={dog.name}
                   />
                   <div
                     className="card-body"
@@ -140,19 +142,3 @@ const HomePageOne = () => {
 };
 
 export default HomePageOne;
-
-{
-  /* <img
-                    className={styles.size}
-                    src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
-                    alt={dog.name}
-                  ></img>
-                  <h3 className={styles.titletext}>{dog.name}</h3>
-                  <p className={styles.ptext}>Uses: {dog.bred_for}</p>
-                  <button
-                    className={styles.button}
-                    onClick={() => handleClick(dog.id)}
-                  >
-                    Click here for info
-                  </button> */
-}
