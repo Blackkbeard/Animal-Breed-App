@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 const CatBreedTwo = () => {
   const [cats, setCats] = useState([]);
   const [texts, setTexts] = useState("");
-  const [showInfo, setShowInfo] = useState(false);
-
   useEffect(() => {
     const fetchCatData = async () => {
       try {
