@@ -11,7 +11,7 @@ function App() {
         className="gif"
         src="https://media.tenor.com/sry7W92N2boAAAAi/bug-cat-dog-dog.gif"
       ></img>
-      <h1> Test</h1>
+      {/* <h1> ANIMAL BREED </h1> */}
       <img
         className="gif2"
         src="https://media.tenor.com/76ZlPp7kcVYAAAAi/ami-fat-cat-ami-cat.gif"
