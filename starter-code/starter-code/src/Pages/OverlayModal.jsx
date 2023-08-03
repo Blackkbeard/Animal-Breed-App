@@ -20,15 +20,22 @@ const Overlay = (props) => {
             src={`https://cdn2.thedogapi.com/images/${props.img}.jpg`}
             className={styles.size}
           ></img>
-          <ul>
-            <li>{props.name}</li>
+          <ul className={styles.text}>
+            <h2>
+              <strong>{props.name}</strong>
+            </h2>
             <li>{props.height} Cm</li>
             <li>{props.weight} Kg</li>
             <li>{props.temperament}</li>
             {/* <li>{props.origin}</li> */}
           </ul>
 
-          <button onClick={() => handleOnClick(props.id)}>close</button>
+          <button
+            className={styles.button}
+            onClick={() => handleOnClick(props.id)}
+          >
+            <strong>CLOSE</strong>
+          </button>
         </div>
       </div>
     </>
@@ -42,7 +49,7 @@ const OverlayModal = (props) => {
         <Overlay
           name={props.name}
           setShowInfo={props.setShowInfo}
-          weight={props.metric}
+          weight={props.weight}
           img={props.img}
           id={props.id}
           setDogs={props.setDogs}

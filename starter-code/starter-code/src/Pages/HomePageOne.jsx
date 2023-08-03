@@ -51,16 +51,18 @@ const HomePageOne = () => {
     <>
       <div className="container" style={{ backgroundColor: "#FDCEDF" }}>
         <div>
-          <div className="container d-flex justify-content-center">
-            Welcome to The dog breed info list
+          <div className="container d-flex justify-content-center fs-2">
+            DOG BREEDS LIST
           </div>
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={handleSubmit}
+            className="container d-flex justify-content-center"
+          >
             <input
-              className="container d-flex justify-content-center"
               input="text"
               name="search"
               id="search"
-              placeholder="What breed you want?"
+              placeholder="Enter Breed Name"
               value={text}
               onChange={(e) => setText(e.target.value)}
             ></input>

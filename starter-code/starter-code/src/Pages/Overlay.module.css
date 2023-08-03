@@ -7,22 +7,43 @@
   z-index: 10;
   background: rgba(0, 0, 0, 0.7);
 }
-
-.size {
-  height: 150px;
-  width: 200px;
-  margin-bottom: 2px;
-  /* object-fit: cover; */
+.text {
+  position: relative;
+  left: 40px;
 }
 
+.size {
+  /* display: flex; */
+  position: relative;
+  height: 300px;
+  width: 350px;
+  /* margin-bottom: 20px; */
+  align-items: center;
+  border-radius: 50px;
+  left: 30px;
+}
+.button {
+  display: flex;
+  position: relative;
+  top: 120px;
+  right: 220px;
+  height: 35px;
+  width: 90px;
+  justify-content: center;
+  align-items: center;
+}
 .modal {
-  position: fixed;
-  background: white;
+  display: flex;
+  position: relative;
+  background: #b2a4ff;
   top: 30vh;
   bottom: 40vh;
-  left: 30%;
+  left: 35%;
   width: 30%;
   height: 40%;
   z-index: 100;
   overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
 }
