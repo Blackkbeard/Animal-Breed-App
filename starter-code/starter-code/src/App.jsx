@@ -5,8 +5,8 @@ import HomePageOne from "./Pages/HomePageOne";
 import CatBreedTwo from "./Pages/CatBreedTwo";
 
 import NavBar from "./Navigate/NavBar";
-import SingleDogOverlay from "./Pages/SingleDogOverlay";
-import SingleCatOverlay from "./Pages/SingleCatOverlay";
+// import SingleDogOverlay from "./Pages/SingleDogOverlay";
+// import SingleCatOverlay from "./Pages/SingleCatOverlay";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         {/* <Route path="/page-one/:item" element={<Details />} /> */}
 
         <Route path="/page-two" element={<CatBreedTwo />} />
-        <Route path="/:name" element={<SingleCatOverlay />}></Route>
+        {/* <Route path="/:name" element={<SingleCatOverlay />}></Route> */}
 
         {/* <Route path="/page-three" element={<PageThree />} /> */}
       </Routes>

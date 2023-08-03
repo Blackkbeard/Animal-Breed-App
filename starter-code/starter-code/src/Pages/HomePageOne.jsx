@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import SingleDogOverlay from "./SingleDogOverlay";
-import styles from "./HomePage.module.css";
+// import styles from "./HomePage.module.css";
 import OverlayModal from "./OverlayModal";
 
 const HomePageOne = () => {
@@ -51,10 +50,10 @@ const HomePageOne = () => {
   return (
     <>
       <div>
-        <div className="">Welcome to The dog breed info list</div>
+        <div>Welcome to The dog breed info list</div>
         <form onSubmit={handleSubmit}>
           <input
-            className={styles.input}
+            // className={styles.input}
             input="text"
             name="search"
             id="search"
@@ -64,12 +63,74 @@ const HomePageOne = () => {
           ></input>
           <button type="submit">Submit</button>
         </form>
-        <div className={styles.component} loading="lazy">
-          {dogs.map((dog) => {
-            return (
-              <>
-                <div key={dog.id}>
-                  <img
+      </div>
+
+      <div loading="lazy" className="container">
+        {dogs.map((dog) => {
+          return (
+            <>
+              <div
+                className="card"
+                style={{
+                  top: "10px",
+                  width: "25%",
+                  display: "inline-block",
+                  height: "425px",
+                  // padding: "0, 200px, 20px, 0",
+                  position: "relative",
+                }}
+                key={dog.id}
+              >
+                <img
+                  style={{
+                    position: "absolute",
+                    top: "20px",
+                    left: "10px",
+                    width: "300px",
+                    height: "250px",
+                  }}
+                  src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
+                  className="card-img-top"
+                  alt={dog.name}
+                />
+                <div
+                  className="card-body"
+                  style={{ position: "absolute", bottom: "20px" }}
+                >
+                  <h5 className="card-title">{dog.name}</h5>
+                  <p className="card-text">{dog.bred_for}</p>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => handleClick(dog.id)}
+                  >
+                    Click here for info
+                  </button>
+                </div>
+              </div>
+
+              {dog.showInfo && (
+                <OverlayModal
+                  id={dog.id}
+                  name={dog.name}
+                  bred_for={dog.bred_for}
+                  metric={dog.weight.metric}
+                  setShowInfo={setShowInfo}
+                  img={dog.reference_image_id}
+                  setDogs={setDogs}
+                ></OverlayModal>
+              )}
+            </>
+          );
+        })}
+      </div>
+    </>
+  );
+};
+
+export default HomePageOne;
+
+{
+  /* <img
                     className={styles.size}
                     src={`https://cdn2.thedogapi.com/images/${dog.reference_image_id}.jpg`}
                     alt={dog.name}
@@ -81,27 +142,5 @@ const HomePageOne = () => {
                     onClick={() => handleClick(dog.id)}
                   >
                     Click here for info
-                  </button>
-
-                  {dog.showInfo && (
-                    <OverlayModal
-                      id={dog.id}
-                      name={dog.name}
-                      bred_for={dog.bred_for}
-                      metric={dog.weight.metric}
-                      setShowInfo={setShowInfo}
-                      img={dog.reference_image_id}
-                      setDogs={setDogs}
-                    ></OverlayModal>
-                  )}
-                </div>
-              </>
-            );
-          })}
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default HomePageOne;
+                  </button> */
+}
