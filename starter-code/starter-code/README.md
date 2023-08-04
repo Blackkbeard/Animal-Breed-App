@@ -20,12 +20,4 @@ Do vist the app [here!](https://animal-breeds.netlify.app/)
 
 ### References & Credits
 
-[Bootstrap 5 & React - super easy and fast tutorial
-](https://www.youtube.com/watch?v=xdXd8BJwJ-U&ab_channel=Keepcoding)
-[React Bootstrap Tutorial
-](https://www.youtube.com/watch?v=8pKjULHzs0s&t=762s&ab_channel=AdrianTwarog)
-[Bootstrap 5 Crash Course
-](https://www.youtube.com/watch?v=Jyvffr3aCp0&ab_channel=WebDevSimplified)
-[The React Router](https://www.youtube.com/watch?v=aZGzwEjZrXc&ab_channel=TheNetNinja)
-[Fetching Data with useEffect](https://www.youtube.com/watch?v=qdCHEUaFhBk&ab_channel=TheNetNinja)
-[ React Portal](https://www.youtube.com/watch?v=LyLa7dU5tp8&ab_channel=WebDevSimplified)
+1.[Bootstrap 5 & React - super easy and fast tutorial](https://www.youtube.com/watch?v=xdXd8BJwJ-U&ab_channel=Keepcoding) 1.[React Bootstrap Tutorial](https://www.youtube.com/watch?v=8pKjULHzs0s&t=762s&ab_channel=AdrianTwarog) 1.[Bootstrap 5 Crash Course](https://www.youtube.com/watch?v=Jyvffr3aCp0&ab_channel=WebDevSimplified) 1.[The React Router](https://www.youtube.com/watch?v=aZGzwEjZrXc&ab_channel=TheNetNinja) 1.[Fetching Data with useEffect](https://www.youtube.com/watch?v=qdCHEUaFhBk&ab_channel=TheNetNinja) 1.[ React Portal](https://www.youtube.com/watch?v=LyLa7dU5tp8&ab_channel=WebDevSimplified)
