@@ -4,13 +4,6 @@ The Animal breed App is a family friendly app that allows adults and children to
 
 Do vist the app [here!](https://animal-breeds.netlify.app/)
 
-##ScreenShots:
-
-![1.](E:\vinesh\Coding\GA\course materials\Notes-Homework\p2 ss\1.jpg)
-![2](E:\vinesh\Coding\GA\course materials\Notes-Homework\p2 ss\2.jpg)
-![3](E:\vinesh\Coding\GA\course materials\Notes-Homework\p2 ss\3.jpg)
-![4](E:\vinesh\Coding\GA\course materials\Notes-Homework\p2 ss\4.jpg)
-
 ##Technologies Used:
 
 - HTML
